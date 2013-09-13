@@ -10,35 +10,37 @@ print("4) Divide")
 print("q) Quit this program")
 
 numbers = []
-invoer=None
+choice = None
 
-def option(prompt, option=('1', '2', '3', '4', 'q')):
+def options(prompt, option=('1', '2', '3', '4', 'q')):
 	while True:
-		invoer = input( prompt )
-		if len(invoer) < 1:
+		choice = input( prompt )
+		if len(choice) < 1:
 			return default
-		elif invoer in option:
-			return invoer
+		elif choice in option:
+			return choice
 
-keus = option("What do you want to do? Your choice: ")
-cijfers = int(input("How many numbers do you need? "))
+function = options("What do you want to do? Your choice: ")
+
+if function == 'q':
+	print("Exiting calculator... Bye!")
+	sys.exit();
+
+amount = int(input("How many numbers do you need? "))
 answer = float(input("#1: "))
 
-if option == 'q':
-	sys.exit(i);
-
-for i in range(cijfers-1):
-	if keus == '1':
+for i in range(amount-1):
+	if function == '1':
 		answer += float(input("#"+str(i+2)+": "))
-	if keus == '2':
+	if function == '2':
 		answer -= float(input("#"+str(i+2)+": "))
-	if keus == '3':
+	if function == '3':
 		answer *= float(input("#"+str(i+2)+": "))
-	if keus == '4':
-		cijfer = float(input("#"+str(i+2)+": "))
-		while cijfer == '0':
+	if function == '4':
+		number = float(input("#"+str(i+2)+": "))
+		while number == '0':
 			print("You stupid old bad!")
-			cijfer = float(input("#"+str(i+2)+": "))
+			number = float(input("#"+str(i+2)+": "))
 		else:
 			answer /= cijfer
 
